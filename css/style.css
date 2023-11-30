@@ -6,17 +6,17 @@
 
 .game-board {
     position: relative;
-    width: 80%;
+    width: 100%;
     height: 500px;
     margin: 0 auto;
     overflow: hidden;
-    background-color: rgba(71, 77, 245, 0.93);
+    background: linear-gradient(rgb(61, 67, 238), white)
 }
 
 .grama {
     position: absolute;
     background-color: green;
-    width: 80%;
+    width: 100%;
     height: 31px;
     top: 470px;
     display: flex;
@@ -26,8 +26,8 @@
 
 .pipe {
     position: absolute;
-    left: 0px;
-    bottom: 88px;
+    left: -40px;
+    bottom: 1px;
     width: 80px;
     z-index: 2;
     animation: pipe-animation 1.5s infinite linear;
@@ -35,43 +35,52 @@
 
 @keyframes pipe-animation {
     from {
-        left: 736px;
+        left: 643px;
     }
 
     to {
-        left: 40px;
+        left: -40px;
     }
 }
 
 .mario {
     position: absolute;
     width: 150px;
-    top: 350.333px;
+    bottom: 0px;
+    left: 20px;
     z-index: 3;
 }
 
 .jump {
-    animation: jump 600ms ease-out;
+    animation: jump 700ms ease-out;
 }
 
 @keyframes jump {
     0% {
-        top: 350px;
-    }
-
-    40% {
-        top: 150px;
+        bottom: 0px;
     }
 
     50% {
-        top: 150px;
-    }
-
-    60% {
-        top: 190px;
+        bottom: 220px;
     }
 
     100% {
-        top: 350p;
+        bottom: 0px;
     } 
+}
+
+.clouds {
+    position: absolute;
+    width: 350px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -350px;
+    }
+
+    to {
+        right: 100%;
+    }
 }

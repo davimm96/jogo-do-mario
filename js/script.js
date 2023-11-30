@@ -1,4 +1,4 @@
-/*const mario = document.querySelector('.mario')
+const mario = document.querySelector('.mario')
 const pipe = document.querySelector('.pipe')
 
 const jump = () => {
@@ -17,18 +17,23 @@ function handleKeydown(event) {
 
 const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft
-    const marioPosition = +window.getComputedStyle(mario).top.replace('px', '')
-
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
+    
     //console.log(pipePosition)
     //Quando o usuario perder
-    if(pipePosition < 120 && pipePosition > 0 && marioPosition > 258){
+    if(pipePosition < 144 && pipePosition > 0 && marioPosition < 109){
         pipe.style.animation = 'none'
         pipe.style.left = `${pipePosition}px`
         
         mario.style.animation = 'none'
-        mario.style.top = `${marioPosition}px`
+        mario.style.bottom = `${marioPosition}px`
+
+        mario.src = "./images/game-over.png"
+        mario.style.width = "75px"
+        mario.style.marginLeft = "50px"
+
+        clearInterval(loop)
     }
 }, 10)
 
 document.addEventListener("keydown", handleKeydown)
-*/
